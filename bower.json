@@ -1,0 +1,29 @@
+{
+  "name": "notes",
+  "version": "0.0.1",
+  "homepage": "https://github.com/luisivan/notes",
+  "authors": [
+    "Luis Iván <me@luisivan.net>"
+  ],
+  "description": "Speech to Text and Notes app for Firefox OS",
+  "keywords": [
+    "speech",
+    "to",
+    "text",
+    "notes",
+    "firefoxos"
+  ],
+  "license": "Apache License v2",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "buildingblocks": "~0.1.0"
+  }
+}

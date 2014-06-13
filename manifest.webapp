@@ -1,0 +1,19 @@
+{
+  "name": "Notes",
+  "description": "Speech to Text and Notes app for Firefox OS",
+  "launch_path": "/index.html",
+  "icons": {
+    "32": "/rsc/icons/32.png",
+    "60": "/rsc/icons/60.png",
+    "90": "/rsc/icons/90.png",
+    "120": "/rsc/icons/120.png",
+    "128": "/rsc/icons/128.png"
+  },
+  "developer": {
+    "name": "Luis Iván Cuende",
+    "url": "http://luisivan.net"
+  },
+  "default_locale": "en",
+  "version": "0.0.1",
+  "orientation": ["portrait","landscape-secondary"]
+}
