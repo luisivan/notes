@@ -1,5 +1,6 @@
 {
   "name": "Notes",
+  "version": "0.0.1",
   "description": "Speech to Text and Notes app for Firefox OS",
   "launch_path": "/index.html",
   "icons": {
@@ -14,6 +15,12 @@
     "url": "http://luisivan.net"
   },
   "default_locale": "en",
-  "version": "0.0.1",
-  "orientation": ["portrait","landscape-secondary"]
+  "orientation": ["portrait","landscape-secondary"],
+  "activities": {
+    "stt": {
+      "href": "./stt.html",
+      "disposition": "inline",
+      "returnValue": true
+    }
+  }
 }
