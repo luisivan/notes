@@ -1,6 +1,6 @@
 var recorder = {}
 
-console.log('whooo')
+var activity = "record"
 
 recorder.controller = function() {
 	this.recording = m.prop(false)
@@ -44,6 +44,8 @@ m.module(document.body, recorder)
 
 navigator.mozSetMessageHandler('activity', function(activityRequest) {
 
+    console.log(activityRequest)
+    activityRequest.source.name
     window.activityRequest = activityRequest
 
 })

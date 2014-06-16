@@ -17,6 +17,11 @@
   "default_locale": "en",
   "orientation": ["portrait","landscape-secondary"],
   "activities": {
+    "record": {
+      "href": "./stt.html",
+      "disposition": "inline",
+      "returnValue": true
+    },
     "stt": {
       "href": "./stt.html",
       "disposition": "inline",
