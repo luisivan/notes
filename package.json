@@ -1,0 +1,24 @@
+{
+  "name": "notes",
+  "version": "0.0.0",
+  "description": "Speech to Text and Notes app for Firefox OS",
+  "main": "index.html",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luisivan/notes"
+  },
+  "keywords": [
+    "notes",
+    "speech-to-text",
+    "recorder"
+  ],
+  "author": "Luis Iván Cuende",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/luisivan/notes/issues"
+  },
+  "homepage": "https://github.com/luisivan/notes"
+}
