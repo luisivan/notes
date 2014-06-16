@@ -41,3 +41,9 @@ recorder.view = function(ctrl) {
 }
 
 m.module(document.body, recorder)
+
+navigator.mozSetMessageHandler('activity', function(activityRequest) {
+
+    window.activityRequest = activityRequest
+
+})
