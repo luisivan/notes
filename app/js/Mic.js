@@ -1,26 +1,34 @@
-navigator.getUserMedia = ( navigator.getUserMedia || navigator.mozGetUserMedia )
+/*global MediaRecorder:false */ 
 
-var Mic = {}
+(function () {
+'use strict';
+
+navigator.getUserMedia = (navigator.getUserMedia || navigator.mozGetUserMedia);
+
+var Mic = window.Mic = {};
 
 Mic.record = function(cb) {
 
-    navigator.getUserMedia({ audio: true }, Mic.successCallback.bind(this, cb), Mic.errorCallback)
+    navigator.getUserMedia({audio: true},
+    						Mic.successCb.bind(this, cb), Mic.errorCb);
 
-}
+};
 
-Mic.successCallback = function(cb, stream) {
+Mic.successCb = function(cb, stream) {
 
-    Mic.stop = stream.stop.bind(stream)
+    Mic.stop = stream.stop.bind(stream);
 
-    var recorder = new MediaRecorder(stream)
+    var recorder = new MediaRecorder(stream);
     
     recorder.ondataavailable = function(e) {
-        cb(e.data)
-    }
+        cb(e.data);
+    };
 
-    recorder.onerror = recorder.onwarning = Mic.errorCallback
+    recorder.onerror = recorder.onwarning = Mic.errorCb;
     
-    recorder.start()
-}
+    recorder.start();
+};
 
-Mic.errorCallback = console.log.bind(console)
+Mic.errorCb = console.log.bind(console);
+
+}());
