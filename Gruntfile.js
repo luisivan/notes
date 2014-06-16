@@ -1,4 +1,5 @@
 module.exports = function (grunt) {
+	
     grunt.initConfig({
     	clean: {
 			hooks: ['.git/hooks/pre-commit']
@@ -14,6 +15,6 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-clean')
 	grunt.loadNpmTasks('grunt-shell')
-	
+
     grunt.task.registerTask('hookmeup', ['clean:hooks', 'shell:hooks'])
 }
