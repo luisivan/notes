@@ -4,13 +4,11 @@ var Mic = {}
 
 Mic.record = function(cb) {
 
-    navigator.getUserMedia({ audio: true }, Mic.successCallback.bind(cb), Mic.errorCallback)
+    navigator.getUserMedia({ audio: true }, Mic.successCallback.bind(this, cb), Mic.errorCallback)
 
 }
 
-Mic.successCallback = function(stream) {
-
-    var cb = this
+Mic.successCallback = function(cb, stream) {
 
     Mic.stop = stream.stop.bind(stream)
 
@@ -26,17 +24,3 @@ Mic.successCallback = function(stream) {
 }
 
 Mic.errorCallback = console.log.bind(console)
-
-var bool = true
-
-function test() {
-    if (bool) {
-        Mic.record(function(blob) {
-            console.log(blob)
-            var audio = document.querySelector('audio')
-            audio.src = window.URL.createObjectURL(blob)            
-        })
-    } else
-        Mic.stop()
-    bool = !bool
-}

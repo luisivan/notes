@@ -1,6 +1,8 @@
 navigator.mozSetMessageHandler('activity', function(activityRequest) {
 
-	activityRequest.postResult('text')
+	console.log(activityRequest)
+	window.activityRequest = activityRequest
+	//activityRequest.postResult('text')
 	// activityRequest.postError("Didn't catch that")
 
 })

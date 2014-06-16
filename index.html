@@ -9,5 +9,19 @@
 <body>
     <script src="libs/mithril/mithril.js"></script>
     <script src="libs/ydndb/ydn.db-isw-core-e-qry-text-dev.js"></script>
+    <script>
+
+    	var activity = new MozActivity({
+			name: "stt"
+		})
+
+		activity.onsuccess = function() {
+			var text = this.result
+			alert('The STT activity returned: ' + text)
+		}
+
+		activity.onerror = console.log.bind(console)
+
+    </script>
 </body>
 </html>      
