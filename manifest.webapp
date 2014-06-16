@@ -2,7 +2,7 @@
   "name": "Notes",
   "version": "0.0.1",
   "description": "Speech to Text and Notes app for Firefox OS",
-  "launch_path": "/index.html",
+  "launch_path": "/stt.html",
   "icons": {
     "32": "/rsc/icons/32.png",
     "60": "/rsc/icons/60.png",
@@ -22,5 +22,8 @@
       "disposition": "inline",
       "returnValue": true
     }
+  },
+  "permissions": {
+    "audio-capture": {}
   }
 }
