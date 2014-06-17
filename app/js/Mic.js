@@ -24,9 +24,10 @@
   Mic.stop = function() {
     if (!Mic._stream) {
       console.log('Call record before stop');
+    } else {
+      Mic._stream.stop();
+      Mic._stream = null;
     }
-    Mic._stream.stop();
-    Mic._stream = null;
   };
 
   Mic._callback = function(resolve, reject, _stream) {
