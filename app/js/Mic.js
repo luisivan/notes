@@ -9,26 +9,28 @@
 
   var Mic = window.Mic = {};
 
-  Mic.record = function(callback) {
+  Mic.record = function() {
 
-    navigator.getUserMedia(
-      {audio: true},
-      Mic._callback.bind(this, callback),
-      Mic._callback.bind(this, callback));
+    return new Promise(function(resolve, reject) {
+      navigator.getUserMedia(
+        {audio: true},
+        Mic._callback.bind(this, resolve, reject),
+        reject);
+    });
 
   };
 
-  Mic._callback = function(callback, stream) {
+  Mic._callback = function(resolve, reject, stream) {
 
     Mic.stop = stream.stop.bind(stream);
 
     var recorder = new MediaRecorder(stream);
 
     recorder.ondataavailable = function(e) {
-      callback(null, e.data);
+      resolve(e.data);
     };
 
-    recorder.onerror = recorder.onwarning = callback;
+    recorder.onerror = reject;
 
     recorder.start();
   };
