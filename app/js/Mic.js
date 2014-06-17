@@ -14,15 +14,18 @@
     return new Promise(function(resolve, reject) {
       navigator.getUserMedia(
         {audio: true},
-        Mic._callback.bind(this, resolve, reject),
+        Mic._callback.bind(undefined, resolve, reject),
         reject);
     });
 
   };
 
+  // Calling stop will trigger MediaRecorder's ondataavailable
   Mic.stop = function() {
     Mic._stream.stop.bind(Mic._stream);
-    if (!Mic._stream) console.log('Call record before stop')
+    if (!Mic._stream) {
+      console.log('Call record before stop');
+    }
     Mic._stream = null;
   };
 
