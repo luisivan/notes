@@ -22,10 +22,10 @@
 
   // Calling stop will trigger MediaRecorder's ondataavailable
   Mic.stop = function() {
-    Mic._stream.stop.bind(Mic._stream);
     if (!Mic._stream) {
       console.log('Call record before stop');
     }
+    Mic._stream.stop();
     Mic._stream = null;
   };
 
