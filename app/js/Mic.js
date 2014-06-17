@@ -9,26 +9,38 @@
 
   var Mic = window.Mic = {};
 
-  Mic.record = function(callback) {
+  Mic.record = function() {
 
-    navigator.getUserMedia(
-      {audio: true},
-      Mic._callback.bind(this, callback),
-      Mic._callback.bind(this, callback));
+    return new Promise(function(resolve, reject) {
+      navigator.getUserMedia(
+        {audio: true},
+        Mic._callback.bind(undefined, resolve, reject),
+        reject);
+    });
 
   };
 
-  Mic._callback = function(callback, stream) {
+  Mic.stop = function() {
+    if (!Mic._stream) {
+      console.log('Call record before stop');
+    } else {
+      // Calling stop will trigger MediaRecorder's ondataavailable
+      Mic._stream.stop();
+      Mic._stream = null;
+    }
+  };
 
-    Mic.stop = stream.stop.bind(stream);
+  Mic._callback = function(resolve, reject, _stream) {
 
-    var recorder = new MediaRecorder(stream);
+    Mic._stream = _stream;
+
+    var recorder = new MediaRecorder(_stream);
 
     recorder.ondataavailable = function(e) {
-      callback(null, e.data);
+      resolve(e.data);
     };
 
-    recorder.onerror = recorder.onwarning = callback;
+    recorder.onerror = reject;
 
     recorder.start();
   };
