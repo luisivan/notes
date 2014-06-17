@@ -20,11 +20,15 @@
 
   };
 
-  Mic._callback = function(resolve, reject, stream) {
+  Mic.stop = function() {
+    Mic._stream.stop.bind(Mic._stream);
+  };
 
-    Mic.stop = stream.stop.bind(stream);
+  Mic._callback = function(resolve, reject, _stream) {
 
-    var recorder = new MediaRecorder(stream);
+    Mic._stream = _stream
+
+    var recorder = new MediaRecorder(_stream);
 
     recorder.ondataavailable = function(e) {
       resolve(e.data);
