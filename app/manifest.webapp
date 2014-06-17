@@ -15,14 +15,12 @@
     "url": "http://luisivan.net"
   },
   "default_locale": "en",
-  "orientation": ["portrait","landscape-secondary"],
+  "orientation": [
+    "portrait",
+    "landscape-secondary"
+  ],
   "activities": {
     "record": {
-      "href": "./index.html",
-      "disposition": "inline",
-      "returnValue": true
-    },
-    "stt": {
       "href": "./index.html",
       "disposition": "inline",
       "returnValue": true
