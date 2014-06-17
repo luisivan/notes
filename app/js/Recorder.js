@@ -18,7 +18,6 @@
       if (!this.recording()) {
 
         m.startComputation();
-        // Binding this to Mic.record makes it go nuts
         var _this = this;
         Mic.record(function(err, blob) {
           if (blob) {
