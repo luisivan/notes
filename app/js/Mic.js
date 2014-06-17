@@ -12,21 +12,21 @@
   Mic.record = function(cb) {
 
     navigator.getUserMedia(
-      {audio: true}, Mic.successCb.bind(this, cb), Mic.errorCb);
+      {audio: true}, Mic.cb.bind(this, cb), Mic.cb.bind(this, cb));
 
   };
 
-  Mic.successCb = function(cb, stream) {
+  Mic.cb = function(cb, stream) {
 
     Mic.stop = stream.stop.bind(stream);
 
     var recorder = new MediaRecorder(stream);
 
     recorder.ondataavailable = function(e) {
-      cb(e.data);
+      cb(null, e.data);
     };
 
-    recorder.onerror = recorder.onwarning = Mic.errorCb;
+    recorder.onerror = recorder.onwarning = cb;
 
     recorder.start();
   };

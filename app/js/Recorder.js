@@ -17,12 +17,15 @@
 
       if (!this.recording()) {
 
+        m.startComputation();
         // Binding this to Mic.record makes it go nuts
         var _this = this;
-        Mic.record(function(blob) {
-          _this.blob(blob);
-          _this.blobURL(URL.createObjectURL(blob));
-          m.redraw();
+        Mic.record(function(err, blob) {
+          if (blob) {
+            _this.blob(blob);
+            _this.blobURL(URL.createObjectURL(blob));
+          }
+          m.endComputation();
         });
       } else {
         Mic.stop();
