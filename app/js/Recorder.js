@@ -1,8 +1,9 @@
-/*global m:false */
 /*global Mic:false */
 
 (function () {
   'use strict';
+
+  var m = window.m;
 
   var recorder = {};
 

@@ -18,12 +18,12 @@
   "orientation": ["portrait","landscape-secondary"],
   "activities": {
     "record": {
-      "href": "./stt.html",
+      "href": "./index.html",
       "disposition": "inline",
       "returnValue": true
     },
     "stt": {
-      "href": "./stt.html",
+      "href": "./index.html",
       "disposition": "inline",
       "returnValue": true
     }

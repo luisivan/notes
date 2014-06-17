@@ -1,14 +1,18 @@
 (function () {
   'use strict';
 
-  var getUserMedia = (navigator.getUserMedia || navigator.mozGetUserMedia);
+  var navigator = window.navigator;
+  navigator.getUserMedia = navigator.getUserMedia ||
+                           navigator.mozGetUserMedia;
+
   var MediaRecorder = window.MediaRecorder;
 
   var Mic = window.Mic = {};
 
   Mic.record = function(cb) {
 
-    getUserMedia({audio: true}, Mic.successCb.bind(this, cb), Mic.errorCb);
+    navigator.getUserMedia(
+      {audio: true}, Mic.successCb.bind(this, cb), Mic.errorCb);
 
   };
 

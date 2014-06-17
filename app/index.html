@@ -3,25 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Notes</title>
+    <title>Speech to Text</title>
     <link rel="stylesheet" href="libs/buildingblocks/style/buttons.css">
 </head>
 <body>
-    <script src="libs/mithril/mithril.js"></script>
-    <script src="libs/ydndb/ydn.db-isw-core-e-qry-text-dev.js"></script>
-    <script>
-
-    	var activity = new MozActivity({
-			name: "stt"
-		})
-
-		activity.onsuccess = function() {
-			var text = this.result
-			alert('The STT activity returned: ' + text)
-		}
-
-		activity.onerror = console.log.bind(console)
-
-    </script>
+	<script src="libs/mithril/mithril.js"></script>
+    <script src="js/Mic.js"></script>
+    <script src="js/Recorder.js"></script>
 </body>
 </html>      
