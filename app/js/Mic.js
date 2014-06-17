@@ -22,11 +22,13 @@
 
   Mic.stop = function() {
     Mic._stream.stop.bind(Mic._stream);
+    if (!Mic._stream) console.log('Call record before stop')
+    Mic._stream = null;
   };
 
   Mic._callback = function(resolve, reject, _stream) {
 
-    Mic._stream = _stream
+    Mic._stream = _stream;
 
     var recorder = new MediaRecorder(_stream);
 
