@@ -32,7 +32,7 @@
             this.recording(false);
             m.endComputation();
           }.bind(this));
-        }, 1);
+        }.bind(this), 1);
       } else {
         Mic.stop();
         this.recording(false);
@@ -47,14 +47,23 @@
         return;
       }
 
-      new window.MozActivity({
+      /*new window.MozActivity({
         name: 'open',
         data: {
           type: ['audio/ogg'],
           blob: this.blob(),
           allowSave: true
         }
-      });
+      });*/
+      // This shall not be here, but just for the sake of quick testing
+      var opts = {clientId: 'zyszzdvrixnakrkwxpa5nym7frdx5da0',
+          clientSecret: '987lh4x5pkkmp5dyknaqu3npc1nbbj0z'};
+
+      var w = new window.Watson(opts, function() {
+        w.speechToText(this.blob(), function(err, res) {
+          console.log(res);
+        }.bind(this));
+      }.bind(this));
 
     }.bind(this);
 

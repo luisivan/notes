@@ -37,6 +37,8 @@
     var recorder = new MediaRecorder(_stream);
 
     recorder.ondataavailable = function(e) {
+      // This doesn't work at all
+      // var b = new Blob([e.data], {type: 'audio/wav'});
       resolve(e.data);
     };
 
